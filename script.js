@@ -235,7 +235,7 @@ $("#globeCanvas").on('mousedown', function(e) {
     isDragging = true;
   })
   .on('mousemove', function(e) {
-    console.log("hi");
+    console.log("mouse click");
     var deltaMove = {
       x: e.offsetX - previousMousePosition.x,
       y: e.offsetY - previousMousePosition.y
@@ -256,7 +256,7 @@ $("#globeCanvas").on('mousedown', function(e) {
     isDragging = true;
   })
   .on('vmousemove', function(e) {
-    console.log("hi");
+    console.log("touch click");
     var deltaMove = {
       x: e.offsetX - previousMousePosition.x,
       y: e.offsetY - previousMousePosition.y
