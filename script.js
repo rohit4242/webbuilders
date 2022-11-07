@@ -252,10 +252,10 @@ $("#globeCanvas").on('mousedown', function(e) {
     };
   });
 
-  $("#globeCanvas").on('touchdown', function(e) {
+  $("#globeCanvas").on('vmousedown', function(e) {
     isDragging = true;
   })
-  .on('touchmove', function(e) {
+  .on('vmousemove', function(e) {
     console.log("hi");
     var deltaMove = {
       x: e.offsetX - previousMousePosition.x,
