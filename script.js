@@ -252,6 +252,27 @@ $("#globeCanvas").on('mousedown', function(e) {
     };
   });
 
+  $("#globeCanvas").on('touchdown', function(e) {
+    isDragging = true;
+  })
+  .on('touchmove', function(e) {
+    console.log("hi");
+    var deltaMove = {
+      x: e.offsetX - previousMousePosition.x,
+      y: e.offsetY - previousMousePosition.y
+    };
+
+    if (isDragging) {
+      sphere.rotation.y += deltaMove.x * .005;
+      sphere.rotation.x += deltaMove.y * .005;
+    }
+
+    previousMousePosition = {
+      x: e.offsetX,
+      y: e.offsetY
+    };
+  });
+
   $(document).mouseup(function() {
     isDragging = false;
   });
