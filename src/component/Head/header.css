@@ -1,0 +1,258 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Roboto:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(207, 65%, 65%);
+  --title-color: hsl(0, 0%, 100%);
+  --text-color: hsl(0, 0%, 100%);
+  --text-color-light: hsl(207, 4%, 56%);
+  --body-color: #040d21;
+  --container-color: hsl(207, 4%, 95%);
+
+  /* Change the first number */
+  /* Blue: 207 - Purple: 250 - Pink: 356 - Teal: 174 */
+  --gradient-color: linear-gradient(180deg,
+                      hsla(207, 48%, 72%, 0),
+                      hsla(207, 65%, 65%, 1));
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: 'Roboto', sans-serif;
+  --title-font: 'Lora', serif;
+  --biggest-font-size: 1.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+  --tiny-font-size: .625rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 1024px) {
+  :root {
+    --biggest-font-size: 3rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+    --tiny-font-size: .688rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  transition: background .4s; /* for dark mode animation */
+}
+
+h1, h2, h3 {
+  color: var(--title-color);
+  font-family: var(--title-font);
+  font-weight: var(--font-medium);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== THEME ===============*/
+.nav__buttons{
+  display: flex;
+  align-items: center;
+  column-gap: 1.5rem;
+}
+.change-theme{
+  font-size: 1.25rem;
+  color: var(--title-color);
+  cursor: pointer;
+  transition: color .3s;
+}
+/*========== Variables Dark theme ==========*/
+body.dark-theme {
+  --title-color: hsl(207, 4%, 95%);
+  --text-color: hsl(207, 4%, 65%);
+  --body-color: hsl(200, 94%, 19%);
+  --container-color: hsl(207, 4%, 12%);
+}
+
+/*========== 
+    Color changes in some parts of 
+    the website, in light theme
+==========*/
+.dark-theme .nav,
+.dark-theme .nav__menu,
+.dark-theme .scrollup{
+  background-color: var(--container-color);
+  box-shadow: 0 4px 20px hsla(207, 24%, 8%, .4);
+}
+.dark-theme .home__shape-wawes,
+.dark-theme .home__shape-circle,
+.dark-theme .qualification__img,
+.dark-theme .testimonial__img{
+  filter: invert(1);
+}
+.dark-theme .home__social-link{
+  color: var(--title-color);
+}
+.dark-theme .section__border{
+  border-bottom: 1px solid hsl(207, 4%, 32%);
+}
+.dark-theme::-webkit-scrollbar{
+  background-color: hsl(207, 4%, 15%);
+}
+.dark-theme::-webkit-scrollbar-thumb{
+  background-color: hsl(207, 4%, 25%);
+}
+.dark-theme::-webkit-scrollbar-thumb:hover{
+  background-color: hsl(207, 4%, 35%);
+}
+
+/* ==================================== */
+.header{
+    width: 100%;
+    position: fixed;
+    bottom: 2rem;
+    z-index: var(--z-fixed);
+  }
+  
+  .nav{
+    height: calc(var(--header-height) + .5rem);
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--body-color);
+    box-shadow: 0 4px 20px hsla(207, 24%, 35%, .3);
+    padding-inline: 1.5rem;
+    border-radius: 3rem;
+    transition: background .4s; /* for dark mode animation */
+  }
+  
+  .nav__logo,
+  .nav__toggle,
+  .nav__colse{
+    color: var(--title-color);
+  }
+  
+  .nav__logo{
+    font-family: var(--title-font);
+    font-weight: var(--font-medium);
+  }
+  
+  .nav__toggle{
+    display: flex;
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+  /* @media screen and (max-width: 1023px) { */
+  .nav__menu{
+    position: fixed;
+    width: 80%;
+    left: 0;
+    right: 0;
+    bottom: -60%;
+    margin: 0 auto;
+    background-color: var(--body-color);
+    box-shadow: 0 4px 20px hsla(207, 24%, 35%, .1);
+    padding: 2rem 1.5rem 1rem;
+    border-radius: 2rem;
+    transition: bottom .3s;
+  }
+  /* } */
+  
+  .nav__list{
+    grid-template-columns: repeat(8,max-content);
+    justify-content: center;
+    gap: 2rem 2rem;
+  }
+  @media screen and (max-width: 650px){
+    .nav__list{
+      grid-template-columns: repeat(4,max-content);
+    }
+  }
+  @media screen and (max-width: 380px){
+    .nav__list{
+      grid-template-columns: repeat(2,max-content);
+    }
+  }
+  @media screen and (max-width: 1024px){
+    .nav__list{
+      gap: 3rem 3rem;
+    }
+   
+  }
+  /* @media screen and (max-width: 1200px){
+  } */
+  .nav__link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: .25rem;
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+    transition: color .3s;
+  }
+  .nav__link:hover{
+    color: var(--title-color);
+  }
+  .nav__link i{
+    font-size: 1.25rem;
+  }
+  
+  .nav__close{
+    position: absolute;
+    right: 1.5rem;
+    bottom: .7rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Show menu */
+  .show-menu{
+    bottom: 6.5rem;
+  }
+  
+  /* Active link */
+  .active-link{
+    color: var(--title-color);
+  }
