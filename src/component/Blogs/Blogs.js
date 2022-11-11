@@ -1,7 +1,25 @@
 import React from "react";
-const Blogs = () =>{
+import Card from "./Card"
+import BlogApi from "./BlogsApi"
+const Blogs = () => {
     return (
-        <h1>Blogs</h1>
+        <>
+            <section className="text-gray-600 body-font">
+                <div className="container px-5 py-24 mx-auto">
+                    <div className='text-center'>
+                        <h4>VISIT MY BLOG AND KEEP YOUR FEEDBACK</h4>
+                        <h1>My Blog</h1>
+                    </div>
+
+                    <div className="flex flex-wrap -m-4">
+                        {BlogApi.map((value,index) =>{
+                            return <Card key={index} date={value.date} title_one={value.title_one} desc_one={value.desc_one} title_two={value.title_two}  desc_two={value.desc_two} title_three={value.title_three} desc_three={value.desc_three}/>
+                        })}
+                    </div>
+
+                </div>
+            </section>
+        </>
     )
 }
 

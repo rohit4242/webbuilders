@@ -6,7 +6,7 @@ import Home from "./component/Home/Home";
 // import Projects from "./component/Projects/Projects";
 // import WhyUs from "./component/WhyUs/WhyUs";
 // import Testimonial from "./component/Testimonial/Testimonial";
-// import Blogs from "./component/Blogs/Blogs";
+import Blogs from "./component/Blogs/Blogs";
 // import Contact from "./component/Contact/Contact";
 // import Footer from "./component/Footer/Footer";
 import "./App.css";
@@ -17,12 +17,13 @@ function App() {
     <>
       <Header />
       <Home />
+      <Blogs />
       {/* <Services />
       <About />
       <Projects />
       <WhyUs />
       <Testimonial />
-      <Blogs />
+     
       <Contact /> */}
     </>
   );
