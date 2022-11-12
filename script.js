@@ -235,28 +235,7 @@ $("#globeCanvas").on('mousedown', function(e) {
     isDragging = true;
   })
   .on('mousemove', function(e) {
-    console.log("mouse click");
-    var deltaMove = {
-      x: e.offsetX - previousMousePosition.x,
-      y: e.offsetY - previousMousePosition.y
-    };
-
-    if (isDragging) {
-      sphere.rotation.y += deltaMove.x * .005;
-      sphere.rotation.x += deltaMove.y * .005;
-    }
-
-    previousMousePosition = {
-      x: e.offsetX,
-      y: e.offsetY
-    };
-  });
-
-  $("#globeCanvas").on('vmousedown', function(e) {
-    isDragging = true;
-  })
-  .on('vmousemove', function(e) {
-    console.log("touch click");
+    console.log("hi");
     var deltaMove = {
       x: e.offsetX - previousMousePosition.x,
       y: e.offsetY - previousMousePosition.y
