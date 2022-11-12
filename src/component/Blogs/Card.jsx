@@ -10,8 +10,8 @@ const Card = (props) => {
 
   return (
     <>
-      <div className="p-4 md:w-1/3">
-        <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+      <div className="p-4 md:w-1/3 ">
+        <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden hover:shadow-[4.0px_8.0px_8.0px_rgba(0,150,136,0.90)]">
           <img
             className="lg:h-48 md:h-36 w-full object-cover object-center cursor-pointer	"
             src="https://dummyimage.com/720x400"
@@ -84,7 +84,7 @@ const Card = (props) => {
       {/* Popup box */}
       {modal && (
        <div
-       class="modal fade fixed top-0 mx-8 mt-8 max-w-screen-lg h-[800px] xl:mx-32 2xl:mx-56 outline-none overflow-x-hidden overflow-y-auto z-50"
+       class="modal fade fixed top-0 mx-8 mt-8 max-w-screen-lg h-[80%] xl:mx-32 2xl:mx-56 outline-none overflow-x-hidden overflow-y-auto z-50"
        role="dialog"
      >
        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
@@ -96,8 +96,8 @@ const Card = (props) => {
              <button
                type="button"
                class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-               aria-label="Close"
-             ></button>
+               onClick={toggleModal}
+             ><i class="ri-close-circle-fill"></i></button>
            </div>
            <div class="modal-body relative p-4">
              <div>

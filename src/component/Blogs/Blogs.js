@@ -5,10 +5,10 @@ const Blogs = () => {
     return (
         <>
             <section className="text-gray-600 body-font">
-                <div className="container px-5 py-24 mx-auto">
-                    <div className='text-center'>
+                <div className="container px-5 py-14 mx-auto">
+                    <div className='text-center font-Poppins text-teal-500 pb-4'>
                         <h4>VISIT MY BLOG AND KEEP YOUR FEEDBACK</h4>
-                        <h1>My Blog</h1>
+                        <h1 className="font-Poppins text-teal-500 text-3xl font-thin py-4">My Blog</h1>
                     </div>
 
                     <div className="flex flex-wrap -m-4">

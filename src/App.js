@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "./component/Head/Header";
 import Home from "./component/Home/Home";
-// import Services from "./component/Services/Services";
+import Services from "./component/Services/Services";
 // import About from "./component/About/About";
 // import Projects from "./component/Projects/Projects";
 // import WhyUs from "./component/WhyUs/WhyUs";
-// import Testimonial from "./component/Testimonial/Testimonial";
+import Testimonial from "./component/Testimonial/Testimonial";
 import Blogs from "./component/Blogs/Blogs";
 // import Contact from "./component/Contact/Contact";
 // import Footer from "./component/Footer/Footer";
@@ -17,13 +17,15 @@ function App() {
     <>
       <Header />
       <Home />
+      <Services />
+      {/* <About /> */}
       <Blogs />
-      {/* <Services />
-      <About />
+      <Testimonial />
+
+      {/* 
       <Projects />
       <WhyUs />
       <Testimonial />
-     
       <Contact /> */}
     </>
   );
