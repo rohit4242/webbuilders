@@ -1,8 +1,7 @@
 {
   "name": "webbuilders",
   "version": "0.1.0",
-  "homepage": "https://gitrohit4242.github.io/webbuilders",
-
+  "homepage": "https://rohit4242.github.io/webbuilders/",
   "private": true,
   "dependencies": {
     "@react-three/drei": "^9.40.0",

@@ -22,7 +22,10 @@ const Card = (props) => {
             <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
               {props.date}
             </h2>
-            <h1 className="title-font text-lg font-medium text-gray-100 mb-3 cursor-pointer	"  onClick={toggleModal}>
+            <h1
+              className="title-font text-lg font-medium text-gray-100 mb-3 cursor-pointer	"
+              onClick={toggleModal}
+            >
               {props.title_one}
             </h1>
             <p className="leading-relaxed mb-3">{props.title_two}</p>
@@ -83,57 +86,139 @@ const Card = (props) => {
 
       {/* Popup box */}
       {modal && (
-       <div
-       class="modal fade fixed top-0 mx-8 mt-8 max-w-screen-lg h-[80%] xl:mx-32 2xl:mx-56 outline-none overflow-x-hidden overflow-y-auto z-50"
-       role="dialog"
-     >
-       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
-         <div class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-           <div class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-             <h5 class="text-xl font-medium leading-normal text-gray-800">
-               {props.title_one}
-             </h5>
-             <button
-               type="button"
-               class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-               onClick={toggleModal}
-             ><i class="ri-close-circle-fill"></i></button>
-           </div>
-           <div class="modal-body relative p-4">
-             <div>
-                 <img src="https://dummyimage.com/720x400" alt="" />
-             </div>
-             <span>{props.date}</span>
-             <h1 className="text-gray-900 py-4">{props.title_one}</h1>
-             <p>{props.desc_one}</p>
+        <div
+          className="modal fade fixed top-0 mx-8 mt-0 max-w-screen-lg h-[90%] xl:mx-32 2xl:mx-56 outline-none overflow-x-hidden overflow-y-auto z-50 font-Poppins"
+          role="dialog"
+        >
+          <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
+            <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+              <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                <h5 className="text-xl font-medium leading-normal text-gray-800 ">
+                  {props.title_one}
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                  onClick={toggleModal}
+                >
+                  <i className="ri-close-circle-fill text-3xl"></i>
+                </button>
+              </div>
+              <div className="modal-body relative p-4">
+                <div>
+                  <img src="https://dummyimage.com/720x400" alt="" />
+                </div>
+                <span>{props.date}</span>
+                <h1 className="text-gray-900 py-4">{props.title_one}</h1>
+                <p>{props.desc_one}</p>
 
-             <h1 className="text-gray-900 py-4">{props.title_two}</h1>
-             <p>{props.desc_two}</p>
+                <h1 className="text-gray-900 py-4">{props.title_two}</h1>
+                <p>{props.desc_two}</p>
 
-             <h1 className="text-gray-900 py-4">{props.title_three}</h1>
-             <p>{props.desc_three}</p>
+                <h1 className="text-gray-900 py-4">{props.title_three}</h1>
+                <p>{props.desc_three}</p>
 
-             <p>Just like that. </p>
-           </div>
-           <div class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-             <button
-               type="button"
-               class="inline-block cursor-pointer px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-               onClick={toggleModal}
-             >
-               Close
-             </button>
-             <button
-               type="button"
-               class="inline-block cursor-pointer px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1"
-               onClick={toggleModal}
-             >
-               Save changes
-             </button>
-           </div>
-         </div>
-       </div>
-     </div>
+                <p>Just like that. </p>
+
+                <div className="flex justify-center items-center"> 
+                  <form className="w-full max-w-lg mt-14">
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        for="grid-first-name"
+                      >
+                        First Name
+                      </label>
+                      <input
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                        id="grid-first-name"
+                        type="text"
+                        placeholder="Rohit"
+                      />
+                      <p className="text-red-500 text-xs italic">
+                        Please fill out this field.
+                      </p>
+                    </div>
+                    <div className="w-full md:w-1/2 px-3">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        for="grid-last-name"
+                      >
+                        Last Name
+                      </label>
+                      <input
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="grid-last-name"
+                        type="text"
+                        placeholder="Luni"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full px-3">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        for="grid-password"
+                      >
+                        E-mail
+                      </label>
+                      <input
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="email"
+                        type="email"
+                        placeholder="Enter Email"
+                      />
+                      {/* <p className="text-gray-600 text-xs italic">
+                        Some tips - as long as needed
+                      </p> */}
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full px-3">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        for="grid-password"
+                      >
+                        Message
+                      </label>
+                      <textarea
+                        className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
+                        id="message"
+                      ></textarea>
+                      {/* <p className="text-gray-600 text-xs italic">
+                        Re-size can be disabled by set by resize-none / resize-y
+                        / resize-x / resize
+                      </p> */}
+                    </div>
+                  </div>
+                  <div className="md:flex md:items-center">
+                    <div className="md:w-1/3">
+                      <button
+                        className="shadow bg-teal-400 hover:bg-teal-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                        type="button"
+                      >
+                        Send
+                      </button>
+                    </div>
+                    <div className="md:w-2/3"></div>
+                  </div>
+                </form>
+                </div>
+               
+              </div>
+              <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+                <button
+                  type="button"
+                  className="inline-block cursor-pointer px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
+                  onClick={toggleModal}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );
