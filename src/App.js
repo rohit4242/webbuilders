@@ -7,8 +7,8 @@ import Services from "./component/Services/Services";
 // import WhyUs from "./component/WhyUs/WhyUs";
 import Testimonial from "./component/Testimonial/Testimonial";
 import Blogs from "./component/Blogs/Blogs";
-// import Contact from "./component/Contact/Contact";
-// import Footer from "./component/Footer/Footer";
+import Contact from "./component/Contact/Contact";
+import Footer from "./component/Footer/Footer";
 import "./App.css";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -20,13 +20,14 @@ function App() {
       <Services />
       {/* <About /> */}
       <Blogs />
+      {/* <Projects /> */}
       <Testimonial />
-
+      <Contact />
+      <Footer />
       {/* 
-      <Projects />
+      
       <WhyUs />
-      <Testimonial />
-      <Contact /> */}
+       */}
     </>
   );
 }

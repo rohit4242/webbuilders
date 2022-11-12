@@ -1,7 +1,8 @@
 import React from "react";
+import "alpinejs";
 const Projects = () =>{
     return (
-        <h1 className="text-9xl text-center	">Projects</h1>
+        <h1>Projects Section</h1>
     )
 }
 
