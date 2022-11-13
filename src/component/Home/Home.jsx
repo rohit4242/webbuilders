@@ -2,9 +2,13 @@ import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 // import { Link } from "react-router-dom";
 import "./Home.css";
+import ScrollToTop from "react-scroll-to-top";
+
 function Home() {
   return (
     <>
+    <ScrollToTop smooth top="20" />
+
       <div
         className="section flex flex-col md:flex-row justify-center items-center mt-8 ml-2 mr-2 z-10"
         id="home"

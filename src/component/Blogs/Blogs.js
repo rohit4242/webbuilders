@@ -11,7 +11,7 @@ const Blogs = () => {
                         <h1 className="font-Poppins text-teal-500 text-3xl font-thin py-4">My Blog</h1>
                     </div>
 
-                    <div className="flex flex-wrap -m-4">
+                    <div className="flex flex-wrap justify-center items-center ">
                         {BlogApi.map((value,index) =>{
                             return <Card key={index} date={value.date} title_one={value.title_one} desc_one={value.desc_one} title_two={value.title_two}  desc_two={value.desc_two} title_three={value.title_three} desc_three={value.desc_three}/>
                         })}

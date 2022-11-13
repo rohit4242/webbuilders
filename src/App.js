@@ -10,11 +10,13 @@ import Blogs from "./component/Blogs/Blogs";
 import Contact from "./component/Contact/Contact";
 import Footer from "./component/Footer/Footer";
 import "./App.css";
+import ScrollToTop from "./component/ScrollToTop/ScrollToTop";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Home />
       <Services />

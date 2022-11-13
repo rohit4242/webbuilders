@@ -27,7 +27,7 @@ const data = [
       id: 5,
       image: "https://img.icons8.com/ios-filled/64/000000/wifi.png ",
       title: "CEO Marketing",
-      desc: "always free from repetition, injected humour, or non-characteristic words etc.",
+      desc: "always free from repetition, injected humour, or non-characteristic words fadfdf dfdfd etc.",
     },
     {
       id: 6,
