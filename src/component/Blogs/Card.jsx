@@ -1,5 +1,6 @@
+import { sendForm } from "@emailjs/browser";
 import React, { useState } from "react";
-
+import BlogsMessage from "../EmailJs/BlogsMessage";
 const Card = (props) => {
   const [modal, setModal] = useState(false);
 
@@ -7,6 +8,15 @@ const Card = (props) => {
     setModal(!modal);
     console.log("ok");
   };
+
+  const first_name = document.getElementById("grid-first-name"),
+    last_name = document.getElementById("grid-last-name"),
+    user_email = document.getElementById("email"),
+    user_message = document.getElementById("message");
+
+  const sendForm = () =>{
+    return <BlogsMessage first_name={first_name.value} last_name={last_name.value} user_email={user_email.value} user_message={user_message.value}/>;
+  }
 
   return (
     <>
@@ -121,7 +131,7 @@ const Card = (props) => {
                 <p>Just like that. </p>
 
                 <div className="flex justify-center items-center"> 
-                  <form className="w-full max-w-lg mt-14">
+                <form className="w-full max-w-lg mt-14" id="blogsMessages">
                   <div className="flex flex-wrap -mx-3 mb-6">
                     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                       <label
@@ -197,6 +207,7 @@ const Card = (props) => {
                       <button
                         className="shadow bg-teal-400 hover:bg-teal-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                         type="button"
+                        onClick={sendForm}
                       >
                         Send
                       </button>
