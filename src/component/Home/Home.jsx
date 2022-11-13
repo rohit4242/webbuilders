@@ -17,7 +17,7 @@ function Home() {
             Hi,
             <br /> <span className="text-6xl">We Are</span>
           </h1>
-          <h2 className="text-teal-500 text-6xl font-Poppins">
+          <h2 className="text-teal-500 text-6xl font-Poppins h-[100px]">
             <span className="">
               <Typewriter
                 words={[
