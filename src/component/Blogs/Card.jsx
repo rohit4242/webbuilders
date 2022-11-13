@@ -216,7 +216,6 @@ const Card = (props) => {
                   </div>
                 </form>
                 </div>
-               
               </div>
               <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
                 <button
