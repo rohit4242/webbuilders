@@ -1,32 +1,38 @@
 import React, { useState, useRef } from "react";
 // import BlogsMessage from "../EmailJs/BlogsMessage";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 const Card = (props) => {
   const [modal, setModal] = useState(false);
-  const [flag, setFlag] = useState(false);
+  var [MessageText, setMessageText] = useState('');
 
   const toggleModal = () => {
     setModal(!modal);
     console.log("ok");
   };
-  const blogsMessages = document.getElementById("blogsMessages");
 
   const form = useRef();
+
   function sendEmail(e) {
     e.preventDefault();
-
-    emailjs.sendForm('service_a16u8n2', 'template_3dbyz9h', form.current, 'iUdMuBNRGw3avQhjn')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        "service_a16u8n2",
+        "template_3dbyz9h",
+        form.current,
+        "iUdMuBNRGw3avQhjn"
+      )
+      .then(
+        (result) => {
+          setMessageText('email has been sent successfully');
           console.log(result.text);
-          setFlag(true);
-          blogsMessages.reset();
-      }, (error) => {
+        },
+        (error) => {
+          setMessageText("email has been not sent");
           console.log(error.text);
-          setFlag(false);
-      });
-
-  };
+        }
+      );
+  }
 
   //   last_name = document.getElementById("grid-last-name"),
   //   user_email = document.getElementById("email"),
@@ -148,91 +154,98 @@ const Card = (props) => {
 
                 <p>Just like that. </p>
 
-                <div className="flex justify-center items-center"> 
-                <form ref={form} className="w-full max-w-lg mt-14" id="blogsMessages" onSubmit={sendEmail}>
-                  <div className="flex flex-wrap -mx-3 mb-6">
-                    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                      <label
-                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        htmlfor="grid-first-name"
-                      >
-                        First Name
-                      </label>
-                      <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                        id="grid-first-name"
-                        type="text"
-                        placeholder="First Name"
-                        name="first_name"
-                      />
-                      <p className="text-red-500 text-xs italic">
-                        Please fill out this field.
-                      </p>
+                <div className="flex justify-center items-center">
+                  <form
+                    ref={form}
+                    className="w-full max-w-lg mt-14"
+                    id="blogsMessages"
+                    onSubmit={sendEmail}
+                  >
+                    <div className="flex flex-wrap -mx-3 mb-6">
+                      <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label
+                          className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                          htmlfor="grid-first-name"
+                        >
+                          First Name
+                        </label>
+                        <input
+                          className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                          id="grid-first-name"
+                          type="text"
+                          placeholder="First Name"
+                          name="first_name"
+                        />
+                        <p className="text-red-500 text-xs italic">
+                          Please fill out this field.
+                        </p>
+                      </div>
+                      <div className="w-full md:w-1/2 px-3">
+                        <label
+                          className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                          htmlfor="grid-last-name"
+                        >
+                          Last Name
+                        </label>
+                        <input
+                          className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                          id="grid-last-name"
+                          type="text"
+                          placeholder="Last Name"
+                          name="last_name"
+                        />
+                      </div>
                     </div>
-                    <div className="w-full md:w-1/2 px-3">
-                      <label
-                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        htmlfor="grid-last-name"
-                      >
-                        Last Name
-                      </label>
-                      <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-last-name"
-                        type="text"
-                        placeholder="Last Name"
-                        name="last_name"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap -mx-3 mb-6">
-                    <div className="w-full px-3">
-                      <label
-                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        htmlfor="grid-password"
-                      >
-                        E-mail
-                      </label>
-                      <input
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="email"
-                        type="email"
-                        placeholder="Enter Email"
-                        name="user_email"
-                      />
-                      {/* <p className="text-gray-600 text-xs italic">
+                    <div className="flex flex-wrap -mx-3 mb-6">
+                      <div className="w-full px-3">
+                        <label
+                          className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                          htmlfor="grid-password"
+                        >
+                          E-mail
+                        </label>
+                        <input
+                          className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                          id="email"
+                          type="email"
+                          placeholder="Enter Email"
+                          name="user_email"
+                        />
+                        {/* <p className="text-gray-600 text-xs italic">
                         Some tips - as long as needed
                       </p> */}
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex flex-wrap -mx-3 mb-6">
-                    <div className="w-full px-3">
-                      <label
-                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        htmlfor="grid-password"
-                      >
-                        Message
-                      </label>
-                      <textarea
-                        className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
-                        id="message"
-                        name="user_message"
-                      ></textarea>
-                      {flag === true ?<p className="text-teal-500 text-xs italic">email has been sent successfully</p>:<p className="text-red-400 text-xs italic">email has been Not sent</p>}
+                    <div className="flex flex-wrap -mx-3 mb-6">
+                      <div className="w-full px-3">
+                        <label
+                          className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                          htmlfor="grid-password"
+                        >
+                          Message
+                        </label>
+                        <textarea
+                          className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
+                          id="message"
+                          name="user_message"
+                        ></textarea>
+                        <p className="text-teal-500 text-xs italic">
+                          {MessageText}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="md:flex md:items-center">
-                    <div className="md:w-1/3">
-                      <button
-                        className="shadow bg-teal-400 hover:bg-teal-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                        type="submit"
-                      >
-                        Send
-                      </button>
+                    <div className="md:flex md:items-center">
+                      <div className="md:w-1/3">
+                        <button
+                          className="shadow bg-teal-400 hover:bg-teal-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                          type="submit"
+                        >
+                          Send
+                        </button>
+                      </div>
+                      <div className="md:w-2/3"></div>
                     </div>
-                    <div className="md:w-2/3"></div>
-                  </div>
-                </form>
+                  </form>
                 </div>
               </div>
               <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
