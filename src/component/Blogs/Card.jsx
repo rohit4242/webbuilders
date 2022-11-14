@@ -1,22 +1,40 @@
-import { sendForm } from "@emailjs/browser";
-import React, { useState } from "react";
-import BlogsMessage from "../EmailJs/BlogsMessage";
+import React, { useState, useRef } from "react";
+// import BlogsMessage from "../EmailJs/BlogsMessage";
+import emailjs from '@emailjs/browser';
+
 const Card = (props) => {
   const [modal, setModal] = useState(false);
+  const [flag, setFlag] = useState(false);
 
   const toggleModal = () => {
     setModal(!modal);
     console.log("ok");
   };
+  const blogsMessages = document.getElementById("blogsMessages");
 
-  const first_name = document.getElementById("grid-first-name"),
-    last_name = document.getElementById("grid-last-name"),
-    user_email = document.getElementById("email"),
-    user_message = document.getElementById("message");
+  const form = useRef();
+  function sendEmail(e) {
+    e.preventDefault();
 
-  const sendForm = () =>{
-    return <BlogsMessage first_name={first_name.value} last_name={last_name.value} user_email={user_email.value} user_message={user_message.value}/>;
-  }
+    emailjs.sendForm('service_a16u8n2', 'template_3dbyz9h', form.current, 'iUdMuBNRGw3avQhjn')
+      .then((result) => {
+          console.log(result.text);
+          setFlag(true);
+          blogsMessages.reset();
+      }, (error) => {
+          console.log(error.text);
+          setFlag(false);
+      });
+
+  };
+
+  //   last_name = document.getElementById("grid-last-name"),
+  //   user_email = document.getElementById("email"),
+  //   user_message = document.getElementById("message");
+
+  // const sendForm = () =>{
+  //   return <BlogsMessage first_name={first_name.value} last_name={last_name.value} user_email={user_email.value} user_message={user_message.value}/>;
+  // }
 
   return (
     <>
@@ -131,12 +149,12 @@ const Card = (props) => {
                 <p>Just like that. </p>
 
                 <div className="flex justify-center items-center"> 
-                <form className="w-full max-w-lg mt-14" id="blogsMessages">
+                <form ref={form} className="w-full max-w-lg mt-14" id="blogsMessages" onSubmit={sendEmail}>
                   <div className="flex flex-wrap -mx-3 mb-6">
                     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                       <label
                         className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-first-name"
+                        htmlfor="grid-first-name"
                       >
                         First Name
                       </label>
@@ -144,7 +162,8 @@ const Card = (props) => {
                         className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                         id="grid-first-name"
                         type="text"
-                        placeholder="Rohit"
+                        placeholder="First Name"
+                        name="first_name"
                       />
                       <p className="text-red-500 text-xs italic">
                         Please fill out this field.
@@ -153,7 +172,7 @@ const Card = (props) => {
                     <div className="w-full md:w-1/2 px-3">
                       <label
                         className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-last-name"
+                        htmlfor="grid-last-name"
                       >
                         Last Name
                       </label>
@@ -161,7 +180,8 @@ const Card = (props) => {
                         className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-last-name"
                         type="text"
-                        placeholder="Luni"
+                        placeholder="Last Name"
+                        name="last_name"
                       />
                     </div>
                   </div>
@@ -169,7 +189,7 @@ const Card = (props) => {
                     <div className="w-full px-3">
                       <label
                         className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-password"
+                        htmlfor="grid-password"
                       >
                         E-mail
                       </label>
@@ -178,6 +198,7 @@ const Card = (props) => {
                         id="email"
                         type="email"
                         placeholder="Enter Email"
+                        name="user_email"
                       />
                       {/* <p className="text-gray-600 text-xs italic">
                         Some tips - as long as needed
@@ -188,26 +209,23 @@ const Card = (props) => {
                     <div className="w-full px-3">
                       <label
                         className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-password"
+                        htmlfor="grid-password"
                       >
                         Message
                       </label>
                       <textarea
                         className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
                         id="message"
+                        name="user_message"
                       ></textarea>
-                      {/* <p className="text-gray-600 text-xs italic">
-                        Re-size can be disabled by set by resize-none / resize-y
-                        / resize-x / resize
-                      </p> */}
+                      {flag === true ?<p className="text-teal-500 text-xs italic">email has been sent successfully</p>:<p className="text-red-400 text-xs italic">email has been Not sent</p>}
                     </div>
                   </div>
                   <div className="md:flex md:items-center">
                     <div className="md:w-1/3">
                       <button
                         className="shadow bg-teal-400 hover:bg-teal-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                        type="button"
-                        onClick={sendForm}
+                        type="submit"
                       >
                         Send
                       </button>
