@@ -4,43 +4,73 @@ import emailjs from "@emailjs/browser";
 
 const Card = (props) => {
   const [modal, setModal] = useState(false);
-  var [MessageText, setMessageText] = useState('');
+  var [MessageText, setMessageText] = useState("");
 
   const toggleModal = () => {
     setModal(!modal);
     console.log("ok");
   };
 
-  const form = useRef();
+  const first_name = useRef(),
+    last_name = useRef(),
+    user_email = useRef(),
+    user_message = useRef(),
+    form = useRef();
 
   function sendEmail(e) {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_a16u8n2",
-        "template_3dbyz9h",
-        form.current,
-        "iUdMuBNRGw3avQhjn"
-      )
-      .then(
-        (result) => {
-          setMessageText('email has been sent successfully');
-          console.log(result.text);
-        },
-        (error) => {
-          setMessageText("email has been not sent");
-          console.log(error.text);
-        }
-      );
+    if (
+      first_name.current.value === "" ||
+      user_email.current.value === "" ||
+      user_message.current.value === ""
+    ) {
+      setMessageText("Please Fill The All Fields");
+      setTimeout(() => {
+        setMessageText(" ");
+      }, 5000);
+      return 0;
+    } else {
+      emailjs
+        .send(
+          "service_a16u8n2",
+          "template_3dbyz9h",
+          {
+            first_name: first_name.current.value,
+            last_name: last_name.current.value,
+            user_email: user_email.current.value,
+            user_message: user_message.current.value,
+            blog_title: props.title_one,
+          },
+          "iUdMuBNRGw3avQhjn"
+        )
+        .then(
+          (result) => {
+            first_name.current.value = "";
+            last_name.current.value = "";
+            user_email.current.value = "";
+            user_message.current.value = "";
+
+            setMessageText("email has been sent successfully");
+            setTimeout(() => {
+              setMessageText(" ");
+            }, 5000);
+            console.log(result.text);
+          },
+          (error) => {
+            first_name.current.value = "";
+            last_name.current.value = "";
+            user_email.current.value = "";
+            user_message.current.value = "";
+
+            setMessageText("email has been not sent");
+            setTimeout(() => {
+              setMessageText(" ");
+            }, 5000);
+            console.log(error.text);
+          }
+        );
+    }
   }
-
-  //   last_name = document.getElementById("grid-last-name"),
-  //   user_email = document.getElementById("email"),
-  //   user_message = document.getElementById("message");
-
-  // const sendForm = () =>{
-  //   return <BlogsMessage first_name={first_name.value} last_name={last_name.value} user_email={user_email.value} user_message={user_message.value}/>;
-  // }
 
   return (
     <>
@@ -156,16 +186,16 @@ const Card = (props) => {
 
                 <div className="flex justify-center items-center">
                   <form
-                    ref={form}
                     className="w-full max-w-lg mt-14"
                     id="blogsMessages"
                     onSubmit={sendEmail}
+                    ref={form}
                   >
                     <div className="flex flex-wrap -mx-3 mb-6">
                       <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label
                           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          htmlfor="grid-first-name"
+                          htmlFor="grid-first-name"
                         >
                           First Name
                         </label>
@@ -175,6 +205,7 @@ const Card = (props) => {
                           type="text"
                           placeholder="First Name"
                           name="first_name"
+                          ref={first_name}
                         />
                         <p className="text-red-500 text-xs italic">
                           Please fill out this field.
@@ -183,7 +214,7 @@ const Card = (props) => {
                       <div className="w-full md:w-1/2 px-3">
                         <label
                           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          htmlfor="grid-last-name"
+                          htmlFor="grid-last-name"
                         >
                           Last Name
                         </label>
@@ -193,6 +224,7 @@ const Card = (props) => {
                           type="text"
                           placeholder="Last Name"
                           name="last_name"
+                          ref={last_name}
                         />
                       </div>
                     </div>
@@ -200,7 +232,8 @@ const Card = (props) => {
                       <div className="w-full px-3">
                         <label
                           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          htmlfor="grid-password"
+                          htmlFor="grid-password"
+                          type="email"
                         >
                           E-mail
                         </label>
@@ -210,6 +243,7 @@ const Card = (props) => {
                           type="email"
                           placeholder="Enter Email"
                           name="user_email"
+                          ref={user_email}
                         />
                         {/* <p className="text-gray-600 text-xs italic">
                         Some tips - as long as needed
@@ -220,7 +254,7 @@ const Card = (props) => {
                       <div className="w-full px-3">
                         <label
                           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          htmlfor="grid-password"
+                          htmlFor="grid-password"
                         >
                           Message
                         </label>
@@ -228,6 +262,7 @@ const Card = (props) => {
                           className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
                           id="message"
                           name="user_message"
+                          ref={user_message}
                         ></textarea>
                         <p className="text-teal-500 text-xs italic">
                           {MessageText}
