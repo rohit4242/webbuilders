@@ -71,7 +71,7 @@ const Contact = () => {
                     <div className="-mx-4 flex flex-wrap lg:justify-between">
                         <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
                             <div className="mb-12 max-w-[570px] lg:mb-0">
-                                <span className="text-teal-500 text-center text-4xl mb-4 block text-base font-Poppins">
+                                <span className="text-teal-500 dark:text-red-900 text-center text-4xl mb-4 block font-Poppins">
                                     Contact Us
                                 </span>
                                 <h2

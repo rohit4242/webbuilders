@@ -1,8 +1,64 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import "./header.css";
 
 const Header = () => {
   const [Mobile, setMobile] = useState(false);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
+  );
+  const element = document.documentElement;
+  const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  console.log(darkQuery, "darkQuery");
+  const options = [
+    {
+      icon: "ri-sun-line",
+      text: "light",
+    },
+    {
+      icon: "ri-moon-line",
+      text: "dark",
+    },
+    {
+      icon: "ri-computer-line",
+      text: "system",
+    },
+  ];
+  function onWindowMatch(){
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && darkQuery.matches)) {
+      element.classList.add('dark')
+    } else {
+      element.classList.remove('dark')
+    }
+  }
+  onWindowMatch();
+  useEffect(() => {
+    switch (theme) {
+      case "dark":
+        element.classList.add("dark");
+        localStorage.setItem('theme','dark');
+        break;
+      case "light":
+        element.classList.remove("dark");
+        localStorage.setItem('theme','light');
+        break;
+      default:
+        localStorage.removeItem("theme");
+        onWindowMatch();
+        break;
+    }
+  }, [theme]);
+
+  darkQuery.addEventListener("change", (e) => {
+    if(!("theme" in localStorage)){
+      if(e.matches){
+        element.classList.add("dark");
+      }
+      else{
+        element.classList.remove("dark");
+      }
+    }
+  });
   return (
     <>
       <header className="header" id="header">
@@ -59,7 +115,20 @@ const Header = () => {
           </div>
 
           <div className="nav__buttons">
-            <i className="ri-moon-line change-theme" id="theme-button"></i>
+            {options?.map((opt) => (
+              <button
+                key={opt.text}
+                onClick={() => setTheme(opt.text)}
+                className={`cursor-pointer leading-9 text-xl rounded-full m-1 ${
+                  theme === opt.text && "text-sky-600"
+                }`}
+              >
+                <i className={opt.icon}></i>
+              </button>
+            ))}
+            {/* <i className="ri-moon-line cursor-pointer leading-9 text-xl rounded-full m-1 text-sky-600" id="theme-button"></i>
+            <i className="ri-sun-line change-theme" id="theme-button"></i>
+            <i className="ri-computer-line change-theme" id="theme-button"></i> */}
 
             <div className="nav__toggle" onClick={() => setMobile(true)}>
               <i className="ri-menu-4-line"></i>
