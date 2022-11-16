@@ -9,7 +9,6 @@ body{
   height: 100%;
   margin: 0;
   padding: 0;
-  /* background-color: #040d21; */
 
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -19,10 +18,12 @@ body{
 .section{
   @apply md:container md:mx-auto border-b-2 border-gray-500;
 }
-
+.body_color{
+  @apply bg-white text-gray-500 dark:bg-[#040d21] dark:text-white
+}
 .gradient-border {
   --borderWidth: 8px;
-  background: #040d21;
+  /* background: #040d21; */
   position: relative;
   border-radius: var(--borderWidth);
 }

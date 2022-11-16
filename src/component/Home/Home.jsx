@@ -10,14 +10,14 @@ function Home() {
     <ScrollToTop smooth top="20" />
 
       <div
-        className="section flex flex-col md:flex-row justify-center items-center mt-8 ml-2 mr-2 z-10 "
+        className="section flex flex-col md:flex-row justify-center items-center mt-8 ml-2 mr-2 z-10"
         id="home"
       >
         <div className="text-center md:text-start sm:w-4/5 z-20">
-          <h3 className="font-Poppins text-teal-500 pb-4">
+          <h3 className="font-Poppins text-xl text-teal-600 pb-4">
             WELCOME TO DIGITAL AGE
           </h3>
-          <h1 className="font-Poppins text-6xl font-thin pb-4">
+          <h1 className="font-Poppins text-6xl font-thin pb-4 text-gray-800 dark:text-gray-300">
             Hi,
             <br /> <span className="text-6xl">We Are</span>
           </h1>

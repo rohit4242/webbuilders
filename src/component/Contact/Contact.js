@@ -71,20 +71,20 @@ const Contact = () => {
                     <div className="-mx-4 flex flex-wrap lg:justify-between">
                         <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
                             <div className="mb-12 max-w-[570px] lg:mb-0">
-                                <span className="text-teal-500 dark:text-red-900 text-center text-4xl mb-4 block font-Poppins">
+                                <span className="text-teal-500 text-center text-4xl mb-4 block font-Poppins">
                                     Contact Us
                                 </span>
                                 <h2
-                                    className="text-dark mb-6 text-[32px] font-bold uppercase font-Poppins sm:text-[40px] lg:text-[36px] xl:text-[40px]"
+                                    className="text-gray-800 dark:text-gray-200 mb-6 text-[32px] font-bold uppercase font-Poppins sm:text-[40px] lg:text-[36px] xl:text-[40px]"
                                 >
                                     GET IN TOUCH WITH US
                                 </h2>
-                                <p className="text-body-color mb-9 text-base leading-relaxed">
+                                <p className="text-body-color mb-9 text-base leading-relaxed text-gray-800 dark:text-gray-200">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
                                     tempor incididunt ut labore et dolore magna aliqua. Ut enim adiqua
                                     minim veniam quis nostrud exercitation ullamco
                                 </p>
-                                <div className="mb-8 flex w-full max-w-[370px]">
+                                <div className="mb-8 flex w-full max-w-[370px] text-gray-800 dark:text-gray-200">
                                     <div
                                         className="bg-primary text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-opacity-5 sm:h-[70px] sm:max-w-[70px]"
                                     >
@@ -106,7 +106,7 @@ const Contact = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="mb-8 flex w-full max-w-[370px]">
+                                <div className="mb-8 flex w-full max-w-[370px] text-gray-800 dark:text-gray-200">
                                     <div
                                         className="bg-primary text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-opacity-5 sm:h-[70px] sm:max-w-[70px]"
                                     >
@@ -127,12 +127,12 @@ const Contact = () => {
                                             />
                                         </svg>
                                     </div>
-                                    <div className="w-full">
+                                    <div className="w-full text-gray-800 dark:text-gray-200">
                                         <h4 className="text-dark mb-1 text-xl font-bold">Phone Number</h4>
                                         <p className="text-body-color text-base">(+91)70695 88487</p>
                                     </div>
                                 </div>
-                                <div className="mb-8 flex w-full max-w-[370px]">
+                                <div className="mb-8 flex w-full max-w-[370px] text-gray-800 dark:text-gray-200">
                                     <div
                                         className="bg-primary text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded bg-opacity-5 sm:h-[70px] sm:max-w-[70px]"
                                     >
@@ -155,7 +155,7 @@ const Contact = () => {
                             </div>
                         </div>
                         <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
-                            <div className="relative rounded-lg bg-white text-gray-800 p-8 shadow-lg sm:p-12">
+                            <div className="relative rounded-lg bg-white dark:bg-slate-900 text-gray-800 p-8 shadow-lg sm:p-12">
                                 <form onSubmit={sendEmail}>
                                     <div className="mb-6">
                                         <input

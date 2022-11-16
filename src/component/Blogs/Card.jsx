@@ -82,12 +82,12 @@ const Card = (props) => {
             alt="blog"
             onClick={toggleModal}
           />
-          <div className="p-6">
-            <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+          <div className="p-6 bg-white dark:bg-inherit">
+            <h2 className="tracking-widest text-xs title-font font-medium text-gray-800 dark:text-gray-400 mb-1">
               {props.date}
             </h2>
             <h1
-              className="title-font text-lg font-medium text-gray-100 mb-3 cursor-pointer	"
+              className="title-font text-lg font-medium text-gray-800 dark:text-gray-300 mb-3 cursor-pointer	"
               onClick={toggleModal}
             >
               {props.title_one}
@@ -114,7 +114,7 @@ const Card = (props) => {
                   <path d="M12 5l7 7-7 7"></path>
                 </svg>
               </a>
-              <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+              <span className="text-gray-800 dark:text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                 <svg
                   className="w-4 h-4 mr-1"
                   stroke="currentColor"
@@ -129,7 +129,7 @@ const Card = (props) => {
                 </svg>
                 1.2K
               </span>
-              <span className="text-gray-400 inline-flex items-center leading-none text-sm">
+              <span className="text-gray-800 dark:text-gray-400 inline-flex items-center leading-none text-sm">
                 <svg
                   className="w-4 h-4 mr-1"
                   stroke="currentColor"
