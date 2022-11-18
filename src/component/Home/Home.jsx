@@ -7,7 +7,7 @@ import ScrollToTop from "react-scroll-to-top";
 function Home() {
   return (
     <>
-    <ScrollToTop smooth top="20" />
+      <ScrollToTop smooth top="20" />
 
       <div
         className="section flex flex-col md:flex-row justify-center items-center mt-8 ml-2 mr-2 z-10"
@@ -75,8 +75,13 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="md:w-96 md:relative z-0 flex justify-center md:ml-8 ">
-          <canvas id="globeCanvas"></canvas>
+        <div className="my-10">
+          <div class="face">
+            <div class="eyes">
+              <div class="eye"></div>
+              <div class="eye"></div>
+            </div>
+          </div>
         </div>
       </div>
     </>
