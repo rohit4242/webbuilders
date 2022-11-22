@@ -21,15 +21,18 @@ body{
 .section{
   @apply md:container md:mx-auto border-b-2 border-gray-500;
 }
+
 .body_color{
   @apply bg-white text-gray-500 dark:bg-[#040d21] dark:text-white
 }
+
 .gradient-border {
   --borderWidth: 8px;
   /* background: #040d21; */
   position: relative;
   border-radius: var(--borderWidth);
 }
+
 .gradient-border:after {
   content: '';
   position: absolute;
@@ -44,8 +47,6 @@ body{
   background-size: 300% 300%;
 }
 
-
-
 .gradient-border-1 {
   padding: 0;
   --borderWidth: 8px;
@@ -53,6 +54,7 @@ body{
   position: relative;
   border-radius: var(--borderWidth);
 }
+
 .gradient-border-1:after {
   content: '';
   position: absolute;
@@ -82,6 +84,7 @@ body{
 .cursor{
   @apply bg-teal-400;
 }
+
 .cursor_pointer{
   @apply shadow-[0_0_0_1px_#14b8a6];
 }

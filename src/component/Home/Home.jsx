@@ -1,6 +1,7 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 // import { Link } from "react-router-dom";
+import Globe from "../Globe/Globe";
 import "./Home.css";
 import ScrollToTop from "react-scroll-to-top";
 
@@ -8,7 +9,7 @@ function Home() {
   return (
     <>
       <ScrollToTop smooth top="20" />
-
+      <Globe />
       <div
         className="section flex flex-col md:flex-row justify-center items-center mt-8 ml-2 mr-2 z-10"
         id="home"
@@ -17,11 +18,11 @@ function Home() {
           <h3 className="font-Poppins text-xl text-teal-600 pb-4">
             WELCOME TO DIGITAL AGE
           </h3>
-          <h1 className="font-Poppins text-6xl font-thin pb-4 text-gray-800 dark:text-gray-300">
+          <h1 className="font-Poppins text-6xl font-thin pb-4 text-slate-200 dark:text-slate-200">
             Hi,
             <br /> <span className="text-6xl">We Are</span>
           </h1>
-          <h2 className="text-teal-500 text-6xl font-Poppins h-[100px]">
+          <h2 className="text-slate-200 dark:text-teal-400 text-6xl font-Poppins h-[120px]">
             <span className="">
               <Typewriter
                 words={[
@@ -40,7 +41,7 @@ function Home() {
               />
             </span>
           </h2>
-          <p className="font-Poppins pt-6 xl:w-10/12">
+          <p className="font-Poppins pt-6 xl:w-10/12 text-slate-200 dark:text-slate-200">
             With over 15+ Projects, We have expertise in ecommerce, portfolio,
             bussness site for small and large bussnesses. Which gives infinite
             flexibility and options. So, What Are You Waiting For? ...
@@ -57,7 +58,7 @@ function Home() {
             </span>
             <span className="absolute inset-0 border-2 border-teal-500	 rounded-full"></span>
           </a>
-          <div className="font-Poppins">
+          <div className="font-Poppins text-slate-200 dark:text-slate-200 ">
             <h4>FIND US ON</h4>
             <div className="button flex space-x-3 mt-5 text-3xl justify-center md:justify-start">
               <a href="https://github.com/rohit4242" className="text-teal-500">
@@ -72,14 +73,6 @@ function Home() {
               <a href="https://dribbble.com/" className="text-teal-500">
                 <i className="ri-dribbble-line"></i>
               </a>
-            </div>
-          </div>
-        </div>
-        <div className="my-10">
-          <div class="face">
-            <div class="eyes">
-              <div class="eye"></div>
-              <div class="eye"></div>
             </div>
           </div>
         </div>
