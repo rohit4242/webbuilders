@@ -1,22 +1,19 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 // import { Link } from "react-router-dom";
-import Globe from "../Globe/Globe";
+import "../Globe/Globe";
 import "./Home.css";
-import ScrollToTop from "react-scroll-to-top";
 
 function Home() {
   return (
     <>
-      <ScrollToTop smooth top="20" />
-      <Globe />
       <div
         className="section flex flex-col md:flex-row justify-center items-center mt-8 ml-2 mr-2 z-10"
         id="home"
       >
         <div className="text-center md:text-start sm:w-4/5 z-20">
           <h3 className="font-Poppins text-xl text-teal-600 pb-4">
-            WELCOME TO DIGITAL AGE
+            WELCOME TO WEBBUILDERS.TECH
           </h3>
           <h1 className="font-Poppins text-6xl font-thin pb-4 text-slate-200 dark:text-slate-200">
             Hi,

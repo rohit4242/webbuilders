@@ -4,7 +4,7 @@ import Card from "./Card";
 const Services = () => {
   return (
     <>
-      <section class="text-gray-600 body-font ">
+      <section class="text-gray-600 body-font" id="services">
         <div className="font-Poppins text-teal-500 py-8">
           <h1 className="text-center font-Poppins text-teal-500 text-3xl font-thin">Services</h1>
         </div>

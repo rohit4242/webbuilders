@@ -17,6 +17,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
+
       <Header />
       <Home />
       <Services />
@@ -30,6 +31,7 @@ function App() {
       
       <WhyUs />
        */}
+
     </>
   );
 }

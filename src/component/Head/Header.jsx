@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import { React, useState, createElement } from "react";
+import { content } from "../Content";
 import { useEffect } from "react";
-import "./header.css";
+import { HiMenuAlt2 } from "react-icons/hi";
 
 const Header = () => {
-  const [Mobile, setMobile] = useState(false);
+  const { nav } = content;
+  const [showMenu, setShowMenu] = useState(false);
+  const [active, setActive] = useState(0);
+
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
+    localStorage.getItem("theme")
   );
   const element = document.documentElement;
   const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -19,16 +23,15 @@ const Header = () => {
       icon: "ri-moon-line",
       text: "dark",
     },
-    {
-      icon: "ri-computer-line",
-      text: "system",
-    },
   ];
-  function onWindowMatch(){
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && darkQuery.matches)) {
-      element.classList.add('dark')
+  function onWindowMatch() {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && darkQuery.matches)
+    ) {
+      element.classList.add("dark");
     } else {
-      element.classList.remove('dark')
+      element.classList.remove("dark");
     }
   }
   onWindowMatch();
@@ -36,11 +39,11 @@ const Header = () => {
     switch (theme) {
       case "dark":
         element.classList.add("dark");
-        localStorage.setItem('theme','dark');
+        localStorage.setItem("theme", "dark");
         break;
       case "light":
         element.classList.remove("dark");
-        localStorage.setItem('theme','light');
+        localStorage.setItem("theme", "light");
         break;
       default:
         localStorage.removeItem("theme");
@@ -50,92 +53,53 @@ const Header = () => {
   }, [theme]);
 
   darkQuery.addEventListener("change", (e) => {
-    if(!("theme" in localStorage)){
-      if(e.matches){
+    if (!("theme" in localStorage)) {
+      if (e.matches) {
         element.classList.add("dark");
-      }
-      else{
+      } else {
         element.classList.remove("dark");
       }
     }
   });
+
   return (
     <>
-      <header className="header" id="header">
-        <nav className="nav">
-          <a href="#home" className="nav__logo">
-            Rohit
-          </a>
-          <div className={Mobile ? "nav__menu show-menu" : "nav__menu"}>
-            <ul className="nav__list grid">
-              <li className="nav__item">
-                <a href="#Home" className="nav__link active-link">
-                  <i className="ri-home-5-line"></i> Home
-                </a>
-              </li>
-              <li className="nav__item">
-                <a href="#Services" className="nav__link">
-                  <i className="ri-trophy-line"></i> Services
-                </a>
-              </li>
-              <li className="nav__item">
-                <a href="#About" className="nav__link">
-                  <i className="ri-book-open-line"></i> About
-                </a>
-              </li>
-              <li className="nav__item">
-                <a href="#Projects" className="nav__link">
-                  <i className="ri-briefcase-line"></i> Projects
-                </a>
-              </li>
-              <li className="nav__item">
-                <a href="#WhyUs" className="nav__link">
-                  <i className="ri-image-line"></i> Why Us
-                </a>
-              </li>
-              <li className="nav__item">
-                <a href="#Testimonial" className="nav__link">
-                  <i className="ri-chat-3-line"></i> Testimonial
-                </a>
-              </li>
-              <li className="nav__item">
-                <a href="#Blogs" className="nav__link">
-                  <i className="ri-chat-3-line"></i> Blogs
-                </a>
-              </li>
-              <li className="nav__item">
-                <a href="#Contact" className="nav__link">
-                  <i className="ri-chat-3-line"></i> Contact
-                </a>
-              </li>
-            </ul>
-            <div className="nav__close" onClick={() => setMobile(false)}>
-              <i className="ri-close-line"></i>
-            </div>
-          </div>
-
-          <div className="nav__buttons">
-            {options?.map((opt) => (
-              <button
-                key={opt.text}
-                onClick={() => setTheme(opt.text)}
-                className={`cursor-pointer leading-9 text-xl rounded-full m-1 ${
-                  theme === opt.text && "text-sky-600"
-                }`}
-              >
-                <i className={opt.icon}></i>
-              </button>
-            ))}
-            {/* <i className="ri-moon-line cursor-pointer leading-9 text-xl rounded-full m-1 text-sky-600" id="theme-button"></i>
-            <i className="ri-sun-line change-theme" id="theme-button"></i>
-            <i className="ri-computer-line change-theme" id="theme-button"></i> */}
-
-            <div className="nav__toggle" onClick={() => setMobile(true)}>
-              <i className="ri-menu-4-line"></i>
-            </div>
-          </div>
+      <div className="w-full flex justify-center">
+        <div
+          className="sm:cursor-pointer fixed top-10 left-10 z-[999] rounded-lg  dark:bg-white/40 p-2"
+          onClick={() => setShowMenu(!showMenu)}
+        >
+          <HiMenuAlt2 size={34} />
+        </div>
+        <nav
+          className={`fixed  z-[999] flex items-center dark:text-teal-400 text-[#040d21] gap-5 bg-slate-200/60 dark:bg-slate-200/20 px-6 py-3 backdrop-blur-md rounded-full text-dark_primary duration-300 ${
+            showMenu ? "bottom-10" : "bottom-[-100%]"
+          }`}
+        >
+          {nav.map((item, i) => (
+            <a
+              href={item.link}
+              key={i}
+              onClick={() => setActive(i)}
+              className={`text-xl p-2.5 rounded-full sm:cursor-pointer 
+     ${i === active && "dark:bg-[#040d21] bg-teal-400"} `}
+            >
+              {createElement(item.icon)}
+            </a>
+          ))}
+          {options?.map((opt) => (
+            <button
+              key={opt.text}
+              onClick={() => setTheme(opt.text)}
+              className={`cursor-pointer px-3 py-1 text-xl rounded-full m-1 ${
+                theme === opt.text && "bg-teal-400 text-[#040d21] dark:text-teal-400 dark:bg-[#040d21]"
+              }`}
+            >
+              <i className={opt.icon}></i>
+            </button>
+          ))}
         </nav>
-      </header>
+      </div>
     </>
   );
 };
