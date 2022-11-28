@@ -74,15 +74,15 @@ const Card = (props) => {
 
   return (
     <>
-      <div className="p-4 md:w-2/5 mb-8 mx-4 gradient-border-1 hover:scale-105">
-        <div className="h-full w-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden dark:hover:shadow-[4.0px_8.0px_8.0px_rgba(0,150,136,0.90)] ">
+      <div className="p-4 md:w-2/5 mb-8 mx-4 hover:scale-105 ">
+        <div className="h-full w-full rounded-lg border-none bg-slate-800/10  dark:bg-slate-400/10 overflow-hidden">
           <img
             className="lg:h-48 md:h-36 w-full object-cover object-center cursor-pointer	"
             src="https://dummyimage.com/720x400"
             alt="blog"
             onClick={toggleModal}
           />
-          <div className="p-6 bg-white dark:bg-inherit">
+          <div className="p-6  dark:bg-inherit">
             <h2 className="tracking-widest text-xs title-font font-medium text-gray-800 dark:text-gray-400 mb-1">
               {props.date}
             </h2>
