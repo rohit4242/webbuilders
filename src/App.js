@@ -3,7 +3,7 @@ import Header from "./component/Head/Header";
 import Home from "./component/Home/Home";
 import Services from "./component/Services/Services";
 // import About from "./component/About/About";
-// import Projects from "./component/Projects/Projects";
+import Projects from "./component/Projects/Projects";
 // import WhyUs from "./component/WhyUs/WhyUs";
 import Testimonial from "./component/Testimonial/Testimonial";
 import Blogs from "./component/Blogs/Blogs";
@@ -23,7 +23,7 @@ function App() {
       <Services />
       {/* <About /> */}
       <Blogs />
-      {/* <Projects /> */}
+      <Projects />
       <Testimonial />
       <Contact />
       <Footer />
