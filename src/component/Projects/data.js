@@ -1,4 +1,4 @@
-const Portfolio_data = [
+const data = [
     {
       id: 1,
       category: "DEVELOPMENT",
@@ -42,4 +42,4 @@ const Portfolio_data = [
       image: "https://dummyimage.com/720x400",
     },
   ]
-  export default Portfolio_data
+  export default data

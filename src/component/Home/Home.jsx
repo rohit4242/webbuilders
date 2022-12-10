@@ -15,11 +15,11 @@ function Home() {
           <h3 className="font-Poppins text-xl text-teal-600 pb-4">
             WELCOME TO WEBBUILDERS.TECH
           </h3>
-          <h1 className="font-Poppins text-6xl font-thin pb-4 text-slate-200 dark:text-slate-200">
+          <h1 className="font-Poppins text-6xl font-thin pb-4 text-slate-400 dark:text-slate-200">
             Hi,
             <br /> <span className="text-6xl">We Are</span>
           </h1>
-          <h2 className="text-slate-200 dark:text-teal-400 text-6xl font-Poppins h-[120px]">
+          <h2 className="text-slate-400 dark:text-teal-400 text-6xl font-Poppins h-[120px]">
             <span className="">
               <Typewriter
                 words={[
@@ -38,7 +38,7 @@ function Home() {
               />
             </span>
           </h2>
-          <p className="font-Poppins pt-6 xl:w-10/12 text-slate-200 dark:text-slate-200">
+          <p className="font-Poppins pt-6 xl:w-10/12 text-slate-500 dark:text-slate-200">
             With over 15+ Projects, We have expertise in ecommerce, portfolio,
             bussness site for small and large bussnesses. Which gives infinite
             flexibility and options. So, What Are You Waiting For? ...
