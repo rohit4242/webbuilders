@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 // import BlogsMessage from "../EmailJs/BlogsMessage";
 import emailjs from "@emailjs/browser";
+import "./model.css";
 
 const Card = (props) => {
   const [modal, setModal] = useState(false);
@@ -74,11 +75,11 @@ const Card = (props) => {
 
   return (
     <>
-      <div className="p-4 md:w-2/5 mb-8 mx-4 hover:scale-105 ">
-        <div className="h-full w-full rounded-lg border-none bg-slate-800/10  dark:bg-slate-400/10 overflow-hidden">
+      <div className="p-4 md:w-2/5 mb-8 mx-4 hover:scale-105 duration-500">
+        <div className="h-full w-full rounded-lg border-none bg-slate-400/20 dark:bg-slate-800/95 overflow-hidden ">
           <img
             className="lg:h-48 md:h-36 w-full object-cover object-center cursor-pointer	"
-            src="https://dummyimage.com/720x400"
+            src={props.image}
             alt="blog"
             onClick={toggleModal}
           />
@@ -150,148 +151,128 @@ const Card = (props) => {
 
       {/* Popup box */}
       {modal && (
-        <div
-          className="modal fade fixed top-0 mx-8 mt-0 max-w-screen-lg h-[90%] xl:mx-32 2xl:mx-56 outline-none overflow-x-hidden overflow-y-auto z-50 font-Poppins"
-          role="dialog"
-        >
-          <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable relative w-auto pointer-events-none">
-            <div className="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
-              <div className="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-                <h5 className="text-xl font-medium leading-normal text-gray-800 ">
-                  {props.title_one}
-                </h5>
-                <button
-                  type="button"
-                  className="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
-                  onClick={toggleModal}
+        <div className="modal modal-blog">
+          <div onClick={toggleModal} className="overlay"></div>
+          <div className="modal-content">
+            <div className="modal-img left xl:ml-10">
+              <img src={props.image} alt="" className=" rounded-2xl hover:scale-105 duration-500" />
+            </div>
+            <div className="modal-text right leading-8 dark:text-slate-100">
+              <span>{props.date}</span>
+              <h1>{props.title_one}</h1>
+              <p>{props.desc_one}</p>
+
+              <h1>{props.title_two}</h1>
+              <p>{props.desc_two}</p>
+
+              <h1>{props.title_three}</h1>
+              <p>{props.desc_three}</p>
+
+              <button className="close-modal btn_shadow" onClick={toggleModal}>
+              <i class="ri-close-fill"></i>
+              </button>
+
+              {/*---------Leave Message----------  */}
+              <div className="flex justify-center items-center">
+                <form
+                  className="w-full max-w-lg mt-14"
+                  id="blogsMessages"
+                  onSubmit={sendEmail}
+                  ref={form}
                 >
-                  <i className="ri-close-circle-fill text-3xl"></i>
-                </button>
-              </div>
-              <div className="modal-body relative p-4">
-                <div>
-                  <img src="https://dummyimage.com/720x400" alt="" />
-                </div>
-                <span>{props.date}</span>
-                <h1 className="text-gray-900 py-4">{props.title_one}</h1>
-                <p>{props.desc_one}</p>
-
-                <h1 className="text-gray-900 py-4">{props.title_two}</h1>
-                <p>{props.desc_two}</p>
-
-                <h1 className="text-gray-900 py-4">{props.title_three}</h1>
-                <p>{props.desc_three}</p>
-
-                <p>Just like that. </p>
-
-                <div className="flex justify-center items-center">
-                  <form
-                    className="w-full max-w-lg mt-14"
-                    id="blogsMessages"
-                    onSubmit={sendEmail}
-                    ref={form}
-                  >
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                      <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label
-                          className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          htmlFor="grid-first-name"
-                        >
-                          First Name
-                        </label>
-                        <input
-                          className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                          id="grid-first-name"
-                          type="text"
-                          placeholder="First Name"
-                          name="first_name"
-                          ref={first_name}
-                        />
-                        <p className="text-red-500 text-xs italic">
-                          Please fill out this field.
-                        </p>
-                      </div>
-                      <div className="w-full md:w-1/2 px-3">
-                        <label
-                          className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          htmlFor="grid-last-name"
-                        >
-                          Last Name
-                        </label>
-                        <input
-                          className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                          id="grid-last-name"
-                          type="text"
-                          placeholder="Last Name"
-                          name="last_name"
-                          ref={last_name}
-                        />
-                      </div>
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        htmlFor="grid-first-name"
+                      >
+                        First Name
+                      </label>
+                      <input
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                        id="grid-first-name"
+                        type="text"
+                        placeholder="First Name"
+                        name="first_name"
+                        ref={first_name}
+                      />
+                      <p className="text-red-500 text-xs italic">
+                        Please fill out this field.
+                      </p>
                     </div>
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                      <div className="w-full px-3">
-                        <label
-                          className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          htmlFor="grid-password"
-                          type="email"
-                        >
-                          E-mail
-                        </label>
-                        <input
-                          className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                          id="email"
-                          type="email"
-                          placeholder="Enter Email"
-                          name="user_email"
-                          ref={user_email}
-                        />
-                        {/* <p className="text-gray-600 text-xs italic">
+                    <div className="w-full md:w-1/2 px-3">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        htmlFor="grid-last-name"
+                      >
+                        Last Name
+                      </label>
+                      <input
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="grid-last-name"
+                        type="text"
+                        placeholder="Last Name"
+                        name="last_name"
+                        ref={last_name}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full px-3">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                        type="email"
+                      >
+                        E-mail
+                      </label>
+                      <input
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="email"
+                        type="email"
+                        placeholder="Enter Email"
+                        name="user_email"
+                        ref={user_email}
+                      />
+                      {/* <p className="text-gray-600 text-xs italic">
                         Some tips - as long as needed
                       </p> */}
-                      </div>
                     </div>
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                      <div className="w-full px-3">
-                        <label
-                          className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          htmlFor="grid-password"
-                        >
-                          Message
-                        </label>
-                        <textarea
-                          className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
-                          id="message"
-                          name="user_message"
-                          ref={user_message}
-                        ></textarea>
-                        <p className="text-teal-500 text-xs italic">
-                          {MessageText}
-                        </p>
-                      </div>
+                  </div>
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full px-3">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                        htmlFor="grid-password"
+                      >
+                        Message
+                      </label>
+                      <textarea
+                        className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
+                        id="message"
+                        name="user_message"
+                        ref={user_message}
+                      ></textarea>
+                      <p className="text-teal-500 text-xs italic">
+                        {MessageText}
+                      </p>
                     </div>
-                    <div className="md:flex md:items-center">
-                      <div className="md:w-1/3">
-                        <button
-                          className="shadow bg-teal-400 hover:bg-teal-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                          type="submit"
-                        >
-                          Send
-                        </button>
-                      </div>
-                      <div className="md:w-2/3"></div>
+                  </div>
+                  <div className="md:flex md:items-center">
+                    <div className="md:w-1/3">
+                      <button
+                        className="btn_shadow"
+                        type="submit"
+                      >
+                        Send
+                      </button>
                     </div>
-                  </form>
-                </div>
+                    <div className="md:w-2/3"></div>
+                  </div>
+                </form>
               </div>
-              <div className="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
-                <button
-                  type="button"
-                  className="inline-block cursor-pointer px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out"
-                  onClick={toggleModal}
-                >
-                  Close
-                </button>
-              </div>
+              
+              {/*---------Leave Message----------  */}
             </div>
           </div>
         </div>

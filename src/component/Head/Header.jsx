@@ -81,8 +81,8 @@ const Header = () => {
               href={item.link}
               key={i}
               onClick={() => setActive(i)}
-              className={`text-xl p-2.5 rounded-full sm:cursor-pointer 
-     ${i === active && "dark:bg-[#040d21] bg-teal-400"} `}
+              className={`text-xl p-2.5 rounded-full dark:text-teal-400 sm:cursor-pointer 
+     ${i === active && "dark:bg-[#040d21] bg-teal-500"} `}
             >
               {createElement(item.icon)}
             </a>
