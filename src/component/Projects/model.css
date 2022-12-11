@@ -28,7 +28,7 @@ body.active-modal {
   }
   .modal-content {
     /* box-shadow: 4px 4px 8px #cbcbcb, -4px -4px 8px #ffffff; */
-    @apply shadow-2xl shadow-slate-400 dark:shadow-slate-800;
+    @apply shadow-2xl shadow-slate-400 dark:shadow-slate-800 bg-gradient-to-tr from-[#e2e8ec] to-[#ffffff];
     padding: 10px;
     @apply absolute top-[12%] left-[5%] leading-6 bg-[#f0f3f5] dark:bg-slate-500 px-4 py-7 max-w-[90%] min-w-[60%] z-[9999] rounded-xl;
   }

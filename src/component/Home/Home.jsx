@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       <div
-        className="section flex flex-col md:flex-row justify-center items-center mt-8 ml-2 mr-2 z-10"
+        className="section max-w-screen-xl flex flex-col md:flex-row justify-center items-center mt-8 ml-2 mr-2 z-10"
         id="home"
       >
         <div className="text-center md:text-start sm:w-4/5 z-20">

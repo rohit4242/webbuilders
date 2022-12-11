@@ -115,8 +115,9 @@
     transition: 0.5s;
   }
   .btn_shadow {
-    background: linear-gradient(145deg, #e2e8ec, #ffffff);
+    /* background: linear-gradient(145deg, #e2e8ec, #ffffff); */
     @apply shadow-2xl shadow-slate-400 dark:shadow-slate-800 ;
+    @apply bg-gradient-to-tl from-[#e2e8ec] to-[#ffffff];
 
   }
   .btn_shadow:hover {
@@ -126,9 +127,10 @@
     transform: translateY(-10px);
   }
   .box_shodow {
-    background: linear-gradient(145deg, #e2e8ec, #ffffff);
-    /* box-shadow: 4px 4px 8px #cbcbcb, -4px -4px 8px #ffffff; */
-    @apply shadow-2xl shadow-slate-400 dark:shadow-slate-800 ;
+    /* background: linear-gradient(145deg, #e2e8ec, #ffffff); */
+    @apply bg-gradient-to-bl from-[#e2e8ec] to-[#ffffff];
+    box-shadow: 4px 4px 8px #cbcbcb, -4px -4px 8px #ffffff;
+    /* @apply shadow-2xl shadow-slate-400 dark:shadow-slate-800 ; */
 
     border-radius: 10px;
   }

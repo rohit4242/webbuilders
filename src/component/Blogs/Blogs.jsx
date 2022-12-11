@@ -4,7 +4,7 @@ import BlogApi from "./BlogsApi"
 const Blogs = () => {
     return (
         <>
-            <section className="text-gray-600 body-font">
+            <section className="text-gray-600 body-font max-w-screen-xl mx-auto" id="blogs">
                 <div className="container px-5 py-14 mx-auto">
                     <div className='text-center font-Poppins text-teal-500 pb-4'>
                         <h4>VISIT MY BLOG AND KEEP YOUR FEEDBACK</h4>

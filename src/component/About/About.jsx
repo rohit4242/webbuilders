@@ -3,10 +3,10 @@ import data from "./data";
 const About = () => {
   const about = data;
   return (
-    <section className="text-gray-600 body-font overflow-hidden">
+    <section className="text-gray-600 body-font max-w-screen-xl mx-auto overflow-hidden" id="about">
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
-          <div className="lg:w-1/2 w-full lg:h-auto shadow-2xl p-4 rounded-xl">
+          <div className="lg:w-1/2 w-full lg:h-auto shadow-2xl p-4 bg-gradient-to-tr from-[#e2e8ec] to-[#ffffff] rounded-xl">
             <img
               alt="About Me"
               className=" object-cover object-center rounded-md"

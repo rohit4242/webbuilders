@@ -4,7 +4,7 @@ import Card from './Card'
 
 const Projects = () => {
   return (
-    <section className="relative" id="Projects">
+    <section className="max-w-screen-xl mx-auto" id="projects">
       <div className='container mx-auto'>
         <div className='my-12 text-center'>
           <h4 className='text-teal-400 font-extrabold text-2xl text-center'>VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK</h4>

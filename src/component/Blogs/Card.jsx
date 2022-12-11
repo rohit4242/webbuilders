@@ -76,7 +76,7 @@ const Card = (props) => {
   return (
     <>
       <div className="p-4 md:w-2/5 mb-8 mx-4 hover:scale-105 duration-500">
-        <div className="h-full w-full rounded-lg border-none bg-slate-400/20 dark:bg-slate-800/95 overflow-hidden ">
+        <div className="h-full w-full rounded-lg border-none bg-white dark:bg-slate-800/95 overflow-hidden shadow-xl">
           <img
             className="lg:h-48 md:h-36 w-full object-cover object-center cursor-pointer	"
             src={props.image}

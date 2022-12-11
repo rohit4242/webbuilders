@@ -14,7 +14,7 @@ const Card = (props) => {
   }
   return (
     <>
-      <div className=" rounded-2xl dark:bg-slate-800/95 bg-slate-400/20 p-4 md:w-2/5 mb-8 mx-4 transition-all duration-500 hover:bg-slate-400/40  hover:dark:bg-slate-900/95">
+      <div className=" rounded-2xl dark:bg-slate-800/95 bg-gradient-to-tl from-slate-200 dark:from-slate-900 dark:to-slate-600 to-white shadow-xl p-4 md:w-2/5 mb-8 mx-4 transition-all duration-500 hover:bg-slate-400/40  hover:dark:bg-slate-900/95">
         <div className=" transition-all duration-500">
           <div className="w-full h-full p-4">
             <img

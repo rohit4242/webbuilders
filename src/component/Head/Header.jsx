@@ -2,7 +2,7 @@ import { React, useState, createElement } from "react";
 import { content } from "../Content";
 import { useEffect } from "react";
 import { HiMenuAlt2 } from "react-icons/hi";
-
+import './nav';
 const Header = () => {
   const { nav } = content;
   const [showMenu, setShowMenu] = useState(false);
@@ -66,8 +66,9 @@ const Header = () => {
     <>
       <div className="w-full flex justify-center">
         <div
-          className="sm:cursor-pointer fixed top-10 left-10 z-[999] rounded-lg  dark:bg-white/40 p-2"
+          className="sm:cursor-pointer fixed top-10 left-10 z-[999] rounded-lg  dark:bg-white/40 p-2 duration-500 transition-all"
           onClick={() => setShowMenu(!showMenu)}
+          id="navbar_menu"
         >
           <HiMenuAlt2 size={34} />
         </div>

@@ -66,7 +66,7 @@ const Contact = () => {
 
     return (
         <>
-            <section className="relative z-10 overflow-hidden py-4 lg:py-[120px] mb-32 font-Poppins">
+            <section className="relative max-w-screen-xl mx-auto z-10 overflow-hidden py-4 lg:py-[120px] mb-32 font-Poppins" id="contact">
                 <div className="container mx-auto">
                     <div className="-mx-4 flex flex-wrap lg:justify-between">
                         <div className="w-full px-4 lg:w-1/2 xl:w-6/12">
