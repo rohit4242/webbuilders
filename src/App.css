@@ -116,7 +116,7 @@
   }
   .btn_shadow {
     /* background: linear-gradient(145deg, #e2e8ec, #ffffff); */
-    @apply shadow-2xl shadow-slate-400 dark:shadow-slate-800 ;
+    @apply shadow-2xl shadow-slate-400 dark:shadow-slate-800;
     @apply bg-gradient-to-tl from-[#e2e8ec] to-[#ffffff];
 
   }
@@ -125,6 +125,13 @@
     @apply bg-teal-500;
     color: white;
     transform: translateY(-10px);
+  }
+  .btn_shadow i{
+    opacity: 0;
+  }
+  .btn_shadow:hover i{
+    color: white;
+    opacity: 1;
   }
   .box_shodow {
     /* background: linear-gradient(145deg, #e2e8ec, #ffffff); */

@@ -4,12 +4,12 @@ import Card from "./Card";
 const Services = () => {
   return (
     <>
-      <section class="text-gray-600 body-font max-w-screen-xl mx-auto" id="services">
+      <section class="text-gray-600 body-font max-w-screen-xl mx-auto overflow-hidden" id="services">
         <div className="font-Poppins text-teal-500 py-8">
           <h1 className="text-center font-Poppins text-teal-500 text-3xl font-thin">Services</h1>
         </div>
-        <div class="container px-5 py-10 mx-auto flex flex-wrap ">
-          <div class="flex flex-wrap -m-4">
+        <div class="container px-5 py-10 mx-auto">
+          <div class="grid grid-cols-3 gap-9">
             {data.map((val, index) => {
               return (
                 <Card

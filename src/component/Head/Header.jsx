@@ -2,15 +2,12 @@ import { React, useState, createElement } from "react";
 import { content } from "../Content";
 import { useEffect } from "react";
 import { HiMenuAlt2 } from "react-icons/hi";
-import './nav';
 const Header = () => {
   const { nav } = content;
   const [showMenu, setShowMenu] = useState(false);
   const [active, setActive] = useState(0);
 
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme")
-  );
+  const [theme, setTheme] = useState(localStorage.getItem("theme"));
   const element = document.documentElement;
   const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
   console.log(darkQuery, "darkQuery");
@@ -52,6 +49,20 @@ const Header = () => {
     }
   }, [theme]);
 
+  useEffect(() => {
+    let theEnd = 0,
+      navbar = document.getElementById("navbar_menu");
+
+    window.addEventListener("scroll", function () {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > theEnd) {
+        navbar.style.top = "-100px";
+      } else {
+        navbar.style.top = "40px";
+      }
+      theEnd = scrollTop;
+    });
+  });
   darkQuery.addEventListener("change", (e) => {
     if (!("theme" in localStorage)) {
       if (e.matches) {
@@ -93,7 +104,8 @@ const Header = () => {
               key={opt.text}
               onClick={() => setTheme(opt.text)}
               className={`cursor-pointer px-3 py-1 text-xl rounded-full m-1 ${
-                theme === opt.text && "bg-teal-400 text-[#040d21] dark:text-teal-400 dark:bg-[#040d21]"
+                theme === opt.text &&
+                "bg-teal-400 text-[#040d21] dark:text-teal-400 dark:bg-[#040d21]"
               }`}
             >
               <i className={opt.icon}></i>
