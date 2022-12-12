@@ -8,8 +8,9 @@ const Services = () => {
         <div className="font-Poppins text-teal-500 py-8">
           <h1 className="text-center font-Poppins text-teal-500 text-3xl font-thin">Services</h1>
         </div>
-        <div class="container px-5 py-10 mx-auto">
-          <div class="grid grid-cols-3 gap-9">
+        <div class="container px-5 py-10 mx-auto overflow-hidden">
+        {/* grid grid-cols-3 gap-9 */}
+          <div class="grid grid-rows-1 gap-96">
             {data.map((val, index) => {
               return (
                 <Card

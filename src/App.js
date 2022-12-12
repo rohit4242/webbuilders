@@ -12,21 +12,26 @@ import Footer from "./component/Footer/Footer";
 import "./App.css";
 import ScrollToTop from "./component/ScrollToTop/ScrollToTop";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 function App() {
   return (
     <>
-      <ScrollToTop />
+      <ParallaxProvider>
 
-      <Header />
-      <Home />
-      <Services />
-      <About />
-      <Blogs />
-      <Projects />
-      <Testimonial />
-      <Contact />
-      <Footer />
+        <ScrollToTop />
+
+        <Header />
+        <Home />
+        <Services />
+        <About />
+        <Blogs />
+        <Projects />
+        <Testimonial />
+        <Contact />
+        <Footer />
+      </ParallaxProvider>
+
       {/* 
       
       <WhyUs />

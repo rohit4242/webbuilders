@@ -21,17 +21,19 @@ const Header = () => {
       text: "dark",
     },
   ];
+  useEffect(() =>{
+    onWindowMatch();
+  })
   function onWindowMatch() {
     if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) && darkQuery.matches)
+      localStorage.theme === "dark" || (!("theme" in localStorage) && darkQuery.matches)
     ) {
       element.classList.add("dark");
     } else {
       element.classList.remove("dark");
     }
   }
-  onWindowMatch();
+
   useEffect(() => {
     switch (theme) {
       case "dark":
@@ -47,7 +49,7 @@ const Header = () => {
         onWindowMatch();
         break;
     }
-  }, [theme]);
+  });
 
   useEffect(() => {
     let theEnd = 0,
