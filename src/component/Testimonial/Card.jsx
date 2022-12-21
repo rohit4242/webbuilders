@@ -3,7 +3,7 @@ import React from "react";
 const Card = (props) => {
   return (
     <>
-      <div className="swiper-slide hover:scale-95">
+      <div className="swiper-slide hover:scale-105">
         <blockquote className="rounded-lg bg-teal-500 p-8 ">
           <div className="flex items-center ">
             <img

@@ -11,7 +11,7 @@ const Projects = () => {
           <h1 className='py-4 text-xl font-medium'>My Portfolio</h1>
         </div>
 
-        <div className='flex flex-wrap justify-center items-center gap-9'>
+        <div className='flex flex-wrap justify-center gap-9'>
           {Data.map((value, index) => {
             return <Card key={index} image={value.image} category={value.category} totalLike={value.totalLike} title={value.title} />
           })}
